@@ -1,0 +1,15 @@
+.attribution {
+    font-family:  $FONT;
+    font-size: 20px;
+    text-align: center;
+    color: $Dark-Blue;
+    
+    a {
+        text-decoration: none;
+        font-weight: 700;
+        color: hsl(228, 45%, 44%);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

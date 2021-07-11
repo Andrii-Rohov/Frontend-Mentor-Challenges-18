@@ -1,0 +1,112 @@
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 657px;
+    margin: 50px auto;
+    width: 80%;
+    transition: 500ms ease-in-out;
+
+    
+    
+    #quote {
+        font-family: $FONT;
+        width: 50%;
+        background-image: url(../images/pattern-quotes.svg);
+        background-repeat: no-repeat;
+        background-position: top;
+        background-position-x: center;
+        background-position-x: 20%;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        z-index: 1;
+
+        p{
+            
+            font-weight: 300;
+            color: $Dark-Blue;
+            font-size: 32px;
+            width: 110%;
+            line-height: 45px;
+        }
+        #name {
+            display: flex;
+            flex-direction: row;
+            h1 {
+                font-size: 20px;
+                color: $Dark-Blue;
+                margin: 0 10px 0 0;
+                
+            }
+            h2 {
+                color: $Grayish-Blue;
+                font-weight: 500;
+                font-size: 20px;
+                margin: 0;
+
+            }
+
+        }
+        
+    }
+    #photo {
+
+        #photo-box {
+            position: relative;
+            #photo-person {
+                border-radius: 10px;
+                box-shadow:  -45px 110px 70px -80px rgba(0, 0, 0, 0.363);
+
+            }
+            #arrows {
+                height: 55px;
+                width: 112px;
+                background-color: white;
+                border-radius: 30px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                position: absolute;
+                bottom: -22.5px;
+                left: 60px;
+                
+
+                 div{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 50%;
+                    height: 100%;
+                    cursor: pointer;
+                    transition: 150ms ease-in-out;
+                    &:first-child {
+                        border-radius: 30px 0 0 30px;
+                    }
+                    &:last-child {
+                        border-radius: 0 30px 30px 0;
+                    }
+                    &:hover {
+                        background-color: hsl(0, 0%, 87%);
+                    }
+                    &:active {
+                        background-color: hsl(0, 0%, 77%);
+                    }
+                }
+                
+            }
+            #background-image {
+                position: absolute;
+                bottom: -50px;
+                left: -65px;
+                z-index: -1;
+            }
+        }
+    }
+
+    
+    
+}

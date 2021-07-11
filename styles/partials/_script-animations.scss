@@ -1,0 +1,94 @@
+.anim-left {
+    animation: rotation-left 1500ms cubic-bezier(.47,.01,.48,1) 1;
+
+}
+.anim-right {
+    animation: rotation-right 1500ms cubic-bezier(.47,.01,.48,1) 1;
+
+}
+@keyframes hide-n-show {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes rotation-right {
+    0% {
+        transform: rotate(0deg) scale(0.95);
+    }
+    10% {
+        transform: rotate(-15deg) scale(0.7);
+        opacity: 0.8;
+        
+    }
+    30% {
+        
+        opacity: 0.5;
+        
+    }
+   50% {
+
+    opacity: 0.2;
+    
+   }
+    70% {
+        transform: rotate(375deg) scale(0.4);
+        opacity: 0.5;
+    }
+    90% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.8;
+    }
+    100%{
+        transform: rotate(360deg);
+        opacity: 1;
+        
+    }
+
+}
+@keyframes rotation-left {
+    0% {
+        transform: rotate(0deg) scale(0.95);
+    }
+    10% {
+        transform: rotate(15deg) scale(0.7);
+        opacity: 0.8;
+        
+    }
+    30% {
+        opacity: 0.5;
+    }
+   50% {
+    opacity: 0.2;
+    
+   }
+   
+    70% {
+        transform: rotate(-375deg) scale(0.4);
+        opacity: 0.5;
+    }
+    90% {
+        transform: rotate(-360deg) scale(1);
+        opacity: 0.8;
+    }
+    100%{
+        transform: rotate(-360deg);
+        opacity: 1;   
+    }
+
+}
+
+
+.jhon {
+    border: none;
+
+}
+.tanya {
+    border: none;
+}

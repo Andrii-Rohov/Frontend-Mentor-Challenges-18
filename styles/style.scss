@@ -23,7 +23,41 @@ body {
 }
 
 
-
+#radio {
+    min-width: 160px;
+    height: 40px;
+    border-radius: 30px;
+    margin-left: 10px;
+    background-color: #8467d3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    #circle {
+        background-color: white;
+        margin-left: 5px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        transition: 100ms linear;
+    }
+}
+.move {
+    transform: translateX(0%);
+}
+.move-1 {
+    transform: translateX(100%);
+}
+.move-2 {
+    transform: translateX(200%);
+}
+.move-3 {
+    transform: translateX(300%);
+}
+.move-4 {
+    transform: translateX(400%);
+}
 
 
 

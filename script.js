@@ -40,8 +40,17 @@ let i = 0;
 
 
 function prevQuoteBlock() {
-    if(i > 4) {
-        i = 0;
+    if(i == 0) {
+        quoteBlock.classList.add(`anim-left-${i}`);
+        personId.classList.toggle("tanya");
+        personId.classList.toggle("jhon");
+        personPhoto.src = personsObj[openedQuoteBlock].photo;
+        personText.innerHTML = personsObj[openedQuoteBlock].quoteText;
+        personName.firstElementChild.innerHTML = personsObj[openedQuoteBlock].h1;
+        personName.lastElementChild.innerHTML = personsObj[openedQuoteBlock].h2;
+        quoteBlock.classList.remove(`anim-left-${i}`);
+        openedQuoteBlock = personId.className;
+        return;
     }
     quoteBlock.classList.add(`anim-left-${i}`);
     personId.classList.toggle("tanya");
@@ -61,14 +70,25 @@ function prevQuoteBlock() {
     setTimeout(function(){
         quoteBlock.classList.remove(`anim-left-${i}`);
         openedQuoteBlock = personId.className;
-        i++;
+        
     }, 1550)
 
 };
 
 function nextQuoteBlock() {
-    if(i > 4) {
-        i = 0;
+    if(i == 0) {
+        
+        quoteBlock.classList.add(`anim-right-${i}`);
+        personId.classList.toggle("tanya");
+        personId.classList.toggle("jhon");
+        personPhoto.src = personsObj[openedQuoteBlock].photo;
+        personText.innerHTML = personsObj[openedQuoteBlock].quoteText;
+        personName.firstElementChild.innerHTML = personsObj[openedQuoteBlock].h1;
+        personName.lastElementChild.innerHTML = personsObj[openedQuoteBlock].h2;
+        quoteBlock.classList.remove(`anim-right-${i}`);
+        openedQuoteBlock = personId.className;
+        return;
+        
     }
     quoteBlock.classList.add(`anim-right-${i}`);
     personId.classList.toggle("tanya");
@@ -88,7 +108,7 @@ function nextQuoteBlock() {
     setTimeout(function(){
         quoteBlock.classList.remove(`anim-right-${i}`);
         openedQuoteBlock = personId.className;
-        i++;
+        
     }, 1550)
 
 
@@ -117,3 +137,33 @@ body.addEventListener("keydown", function(e){
     console.log(e.key);
 })
 
+
+
+let radio = document.querySelector("#radio");
+let circle = document.querySelector("#circle");
+
+radio.addEventListener("click", function(){
+    
+    if(i == 0) {
+        circle.classList.add("move-1");
+        i++;
+    } else if(i == 1) {
+        circle.classList.add("move-2");
+        i++;
+    } else if(i == 2) {
+        circle.classList.add("move-3");
+        i++;
+    } else if(i == 3) {
+        circle.classList.add("move-4");
+        i++;
+    } else {
+        i = 0;
+        circle.classList.remove("move-1");
+        circle.classList.remove("move-2");
+        circle.classList.remove("move-3");
+        circle.classList.remove("move-4");
+        circle.classList.add("move");
+    }
+    
+    
+});

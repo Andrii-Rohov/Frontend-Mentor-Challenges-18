@@ -1,18 +1,19 @@
+let body = document.querySelector("#body")
 let quoteBlock = document.querySelector("#content");
 let personPhoto = document.querySelector("#photo-person");
 let personText = document.querySelector("#quote-text");
 let personName = document.querySelector("#name");
+
 let arrows = document.querySelector("#arrows");
+let prevButton = document.querySelector("#prev-arrow");
+let nextButton = document.querySelector("#next-arrow");
 
 let personId = document.querySelector("#quote");
 
 
 
 
-
 let openedQuoteBlock = personId.className;
-
-
 let personsObj = {
     "tanya" : {
         "h1": "Tanya Sinclair",
@@ -34,18 +35,15 @@ let personsObj = {
 
 };
 
+let i = 0;
 
 
 
-
-
-
-
-let prevButton = document.querySelector("#prev-arrow");
-let nextButton = document.querySelector("#next-arrow");
-
-prevButton.addEventListener("click", function() {
-    quoteBlock.classList.add("anim-left");
+function prevQuoteBlock() {
+    if(i > 4) {
+        i = 0;
+    }
+    quoteBlock.classList.add(`anim-left-${i}`);
     personId.classList.toggle("tanya");
     personId.classList.toggle("jhon");
     console.log(openedQuoteBlock);
@@ -61,31 +59,61 @@ prevButton.addEventListener("click", function() {
     }, 750)
 
     setTimeout(function(){
-        quoteBlock.classList.remove("anim-left");
+        quoteBlock.classList.remove(`anim-left-${i}`);
         openedQuoteBlock = personId.className;
+        i++;
     }, 1550)
+
+};
+
+function nextQuoteBlock() {
+    if(i > 4) {
+        i = 0;
+    }
+    quoteBlock.classList.add(`anim-right-${i}`);
+    personId.classList.toggle("tanya");
+    personId.classList.toggle("jhon");
+    console.log(openedQuoteBlock);
+
+    
+    setTimeout(function(){
+        console.log(openedQuoteBlock);
+        personPhoto.src = personsObj[openedQuoteBlock].photo;
+        personText.innerHTML = personsObj[openedQuoteBlock].quoteText;
+        personName.firstElementChild.innerHTML = personsObj[openedQuoteBlock].h1;
+        personName.lastElementChild.innerHTML = personsObj[openedQuoteBlock].h2;
+        
+    }, 750)
+
+    setTimeout(function(){
+        quoteBlock.classList.remove(`anim-right-${i}`);
+        openedQuoteBlock = personId.className;
+        i++;
+    }, 1550)
+
+
+};
+
+
+prevButton.addEventListener("click", function() {
+    prevQuoteBlock();
     
 })
 nextButton.addEventListener("click", function() {
+    nextQuoteBlock();
 
-    quoteBlock.classList.add("anim-right");
-    personId.classList.toggle("tanya");
-    personId.classList.toggle("jhon");
-    console.log(openedQuoteBlock);
+});
 
-    
-    setTimeout(function(){
-        console.log(openedQuoteBlock);
-        personPhoto.src = personsObj[openedQuoteBlock].photo;
-        personText.innerHTML = personsObj[openedQuoteBlock].quoteText;
-        personName.firstElementChild.innerHTML = personsObj[openedQuoteBlock].h1;
-        personName.lastElementChild.innerHTML = personsObj[openedQuoteBlock].h2;
-        
-    }, 750)
+body.addEventListener("keydown", function(e){
+    if(e.key == "ArrowRight") {
+        nextQuoteBlock();
+    } else if(e.key == "ArrowLeft") {
+        prevQuoteBlock();
+    } else if(e.key == "e") {
+        alert("You found an easter egg");
+    }
 
-    setTimeout(function(){
-        quoteBlock.classList.remove("anim-right");
-        openedQuoteBlock = personId.className;
-    }, 1550)
-
+   
+    console.log(e.key);
 })
+
